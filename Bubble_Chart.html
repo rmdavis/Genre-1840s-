@@ -1,0 +1,93 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<!-- load D3js -->
+<script src="http://www.d3plus.org/js/d3.js"></script>
+
+<!-- load D3plus after D3js -->
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+
+<!-- create container element for visualization -->
+<div id="viz"></div>
+
+// adapted from http://d3plus.org/examples/basic/b197f489fb0fc2093fee/
+
+<script>
+  // sample data array
+  var sample_data = [
+    {"value": 25, "name": "Melodrama", "group": "Bowery"},
+    {"value": 70, "name": "Tragedy", "group": "Bowery"},
+    {"value": 2, "name": "Comedy-US", "group": "Bowery"},
+    {"value": 5, "name": "Comedy-British", "group": "Bowery"},
+    {"value": 5, "name": "Dance", "group": "Bowery"},
+    {"value": 16, "name": "Drama", "group": "Bowery"},
+    {"value": 2, "name": "Burletta", "group": "Bowery"},
+    {"value": 14, "name": "Farce", "group": "Bowery"},
+    {"value": 6, "name": "Minstrelsy", "group": "Bowery"},
+    {"value": 4, "name": "Opera", "group": "Bowery"},
+    {"value": 6, "name": "Play", "group": "Bowery"},
+    {"value": 6, "name": "Romantic Drama", "group": "Bowery"},
+    {"value": 12, "name": "Tragedy", "group": "Bowery"},
+    {"value": 12, "name": "Tragedy-Shakespeare", "group": "Bowery"},
+    {"value": 5, "name": "Tragedy-Ancient", "group": "Bowery"},
+    {"value": 3, "name": "Unknown", "group": "Bowery"},
+    {"value": 3, "name": "Variety", "group": "Bowery"},
+    {"value": 3, "name": "Burlesque", "group": "Park"},
+    {"value": 3, "name": "Comedy", "group": "Park"},
+    {"value": 1, "name": "Afterpiece", "group": "Park"},
+    {"value": 4, "name": "Melodrama", "group": "Park"},
+    {"value": 5, "name": "Comedy-US", "group": "Park"},
+    {"value": 25, "name": "Comedy-British", "group": "Park"},
+    {"value": 2, "name": "Comedy-Shakespeare", "group": "Park"},
+    {"value": 25, "name": "Dance", "group": "Park"},
+    {"value": 11, "name": "Drama", "group": "Park"},
+    {"value": 7, "name": "Burletta", "group": "Park"},
+    {"value": 24, "name": "Farce", "group": "Park"},
+    {"value": 5, "name": "Interlude", "group": "Park"},
+    {"value": 2, "name": "Musical Play", "group": "Park"},
+    {"value": 24, "name": "Opera", "group": "Park"},
+    {"value": 8, "name": "Play", "group": "Park"},
+    {"value": 4, "name": "Romantic Drama", "group": "Park"},
+    {"value": 3, "name": "Singing", "group": "Park"},
+    {"value": 6, "name": "Sketch", "group": "Park"},
+    {"value": 1, "name": "Shakes-History", "group": "Park"},
+    {"value": 5, "name": "Tragedy", "group": "Park"},
+    {"value": 11, "name": "Tragedy-Shakespeare", "group": "Park"},
+    {"value": 3, "name": "Tragedy-Ancient", "group": "Park"},
+    {"value": 10, "name": "Unknown", "group": "Park"},
+    {"value": 1, "name": "Variety", "group": "Park"}, 
+    {"value": 4, "name": "Burlesque", "group": "New Chatham"},
+    {"value": 2, "name": "Extravaganza", "group": "New Chatham"},
+    {"value": 1, "name": "Afterpiece", "group": "New Chatham"},
+    {"value": 30, "name": "Melodrama", "group": "New Chatham"},
+    {"value": 5, "name": "Comedy-US", "group": "New Chatham"},
+    {"value": 20, "name": "Comedy-British", "group": "New Chatham"},
+    {"value": 4, "name": "Comedy-Shakespeare", "group": "New Chatham"},
+    {"value": 13, "name": "Dance", "group": "New Chatham"},
+    {"value": 30, "name": "Drama", "group": "New Chatham"},
+    {"value": 8, "name": "Burletta", "group": "New Chatham"},
+    {"value": 51, "name": "Farce", "group": "New Chatham"},
+    {"value": 2, "name": "Interlude", "group": "New Chatham"},
+    {"value": 5, "name": "Minstrelsy", "group": "New Chatham"},
+    {"value": 5, "name": "Opera", "group": "New Chatham"},
+    {"value": 7, "name": "Play", "group": "New Chatham"},
+    {"value": 4, "name": "Romantic Drama", "group": "New Chatham"},
+    {"value": 6, "name": "Singing", "group": "New Chatham"},
+    {"value": 11, "name": "Tragedy", "group": "New Chatham"},
+    {"value": 16, "name": "Tragedy-Shakespeare", "group": "New Chatham"},
+    {"value": 6, "name": "Tragedy-Ancient", "group": "New Chatham"},
+    {"value": 17, "name": "Unknown", "group": "New Chatham"},
+    {"value": 9, "name": "Variety", "group": "New Chatham"},  
+  ]
+  
+  // instantiate d3plus
+  var visualization = d3plus.viz()
+    .container("#viz")     // container DIV to hold the visualization
+    .data(sample_data)     // data to use with the visualization
+    .type("bubbles")       // visualization type
+    .id(["group", "name"]) // nesting keys
+    .depth(1)              // 0-based depth
+    .size("value")         // key name to size bubbles
+    .color("group")        // color by each group
+    .draw()                // finally, draw the visualization!
+</script>
